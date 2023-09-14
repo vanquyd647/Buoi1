@@ -1,0 +1,163 @@
+ <head>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+           console.log("Coding challenge #1")
+                    
+            function calculateBMI(weight, height) {
+            return weight / (height ** 2);
+            }
+
+            
+            const data1 = {
+            Mark: { weight: 78, height: 1.69 },
+            John: { weight: 92, height: 1.95 },
+            };
+
+            const data2 = {
+            Mark: { weight: 95, height: 1.88 },
+            John: { weight: 85, height: 1.76 },
+            };
+
+            
+            const markBMI1 = calculateBMI(data1.Mark.weight, data1.Mark.height);
+            const johnBMI1 = calculateBMI(data1.John.weight, data1.John.height);
+            const HigherBMI1 = markBMI1 > johnBMI1 ? "Mark" : "John";
+
+            
+            const markBMI2 = calculateBMI(data2.Mark.weight, data2.Mark.height);
+            const johnBMI2 = calculateBMI(data2.John.weight, data2.John.height);
+            const HigherBMI2 = markBMI2 > johnBMI2 ? "Mark" : "John";
+
+            
+            console.log("Data 1:");
+            console.log(`Mark's BMI: ${markBMI1.toFixed(2)}`);
+            console.log(`John's BMI: ${johnBMI1.toFixed(2)}`);
+            console.log(`Mark has a higher BMI than John in Data 1: ${HigherBMI1}`);
+
+            
+            console.log("\nData 2:");
+            console.log(`Mark's BMI: ${markBMI2.toFixed(2)}`);
+            console.log(`John's BMI: ${johnBMI2.toFixed(2)}`);
+            console.log(`Mark has a higher BMI than John in Data 2: ${HigherBMI2}`);
+
+            console.log("Coding challenge #2")
+            
+            console.log(`Data 1:`);
+            console.log(`${HigherBMI1}'s BMI (${markBMI1.toFixed(2)}) is higher than ${HigherBMI1 === 'Mark' ? "John's" : "Mark's"} (${johnBMI1.toFixed(2)})!`);
+
+            
+            console.log(`\nData 2:`);
+            console.log(`${HigherBMI2}'s BMI (${markBMI2.toFixed(2)}) is higher than ${HigherBMI2 === 'Mark' ? "John's" : "Mark's"} (${johnBMI2.toFixed(2)})!`);
+
+            // --------------------------------------------------------------
+            console.log("Coding challenge #3")
+            const dolphinsScores1 = [96, 108, 89];
+            const koalasScores1 = [88, 91, 110];
+
+            const dolphinsScoresBonus1 = [97, 112, 101];
+            const koalasScoresBonus1 = [109, 95, 123];
+
+            const dolphinsScoresBonus2 = [97, 112, 101];
+            const koalasScoresBonus2 = [109, 95, 106];
+
+            
+            function calculateAverageScore(scores) {
+            const total = scores.reduce((acc, score) => acc + score, 0);
+            return total / scores.length;
+            }
+
+           
+            function checkWinner(dolphinsScores, koalasScores) {
+            const dolphinsAverage = calculateAverageScore(dolphinsScores);
+            const koalasAverage = calculateAverageScore(koalasScores);
+
+            if (dolphinsAverage >= 100 && dolphinsAverage > koalasAverage) {
+                return "Dolphins";
+            } else if (koalasAverage >= 100 && koalasAverage > dolphinsAverage) {
+                return "Koalas";
+            } else if (dolphinsAverage === koalasAverage && dolphinsAverage >= 100 && koalasAverage >= 100) {
+                return "It's a draw!";
+            } else {
+                return "No one wins the trophy.";
+            }
+            }
+
+            console.log("Data 1: " + checkWinner(dolphinsScores1, koalasScores1));
+            console.log("Data Bonus 1: " + checkWinner(dolphinsScoresBonus1, koalasScoresBonus1));
+            console.log("Data Bonus 2: " + checkWinner(dolphinsScoresBonus2, koalasScoresBonus2));
+
+            // --------------------------------------------------------------
+            console.log("Coding challenge #4")
+            const billValues = [275, 40, 430];
+
+            for (const bill of billValues) {
+                const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+                const totalValue = bill + tip;
+                console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${totalValue}`);
+            }
+
+            // --------------------------------------------------------------
+            console.log("Coding challenge #5");
+
+            const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+        
+            function checkWinner(avgDolphins, avgKoalas) {
+            if (avgDolphins >= 2 * avgKoalas) {
+                console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`);
+            } else if (avgKoalas >= 2 * avgDolphins) {
+                console.log(`Koalas win (${avgKoalas} vs. ${avgDolphins})`);
+            } else {
+                console.log("No team wins.");
+            }
+            }
+
+            const avgDolphinsData1 = calcAverage(44, 23, 71);
+            const avgKoalasData1 = calcAverage(65, 54, 49);
+
+            const avgDolphinsData2 = calcAverage(85, 54, 41);
+            const avgKoalasData2 = calcAverage(23, 34, 27);
+
+            console.log("Data 1 Results:");
+            checkWinner(avgDolphinsData1, avgKoalasData1);
+
+            console.log("\nData 2 Results:");
+            checkWinner(avgDolphinsData2, avgKoalasData2);
+            // --------------------------------------------------------------
+            console.log("Coding challenge #6");
+        
+            function calcTip(bill) {
+                if (bill >= 50 && bill <= 300) {
+                    return bill * 0.15;
+                } else {
+                    return bill * 0.20;
+                }
+            }
+
+            const billValue = 100;
+            const tipValue = calcTip(billValue);
+            console.log(`Tip for $${billValue} is $${tipValue.toFixed(2)}`);
+
+            const bills = [125, 555, 44];
+
+            const tips = bills.map(bill => calcTip(bill));
+
+            const total = bills.map((bill, index) => bill + tips[index]);
+
+            console.log("Bill values:", bills);
+            console.log("Tip values:", tips);
+            console.log("Total values:", total);
+    
+
+            // --------------------------------------------------------------
+        </script>
+        
+    </body>
+    </html>
+ </head>
