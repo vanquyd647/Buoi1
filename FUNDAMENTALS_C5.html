@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+             console.log("Coding challenge #5");
+
+                const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+
+                function checkWinner(avgDolphins, avgKoalas) {
+                if (avgDolphins >= 2 * avgKoalas) {
+                    console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`);
+                } else if (avgKoalas >= 2 * avgDolphins) {
+                    console.log(`Koalas win (${avgKoalas} vs. ${avgDolphins})`);
+                } else {
+                    console.log("No team wins.");
+                }
+                }
+
+                const avgDolphinsData1 = calcAverage(44, 23, 71);
+                const avgKoalasData1 = calcAverage(65, 54, 49);
+
+                const avgDolphinsData2 = calcAverage(85, 54, 41);
+                const avgKoalasData2 = calcAverage(23, 34, 27);
+
+                console.log("Data 1 Results:");
+                checkWinner(avgDolphinsData1, avgKoalasData1);
+
+                console.log("\nData 2 Results:");
+                checkWinner(avgDolphinsData2, avgKoalasData2);
+                // --------------------------------------------------------------
+                console.log("Coding challenge #6");
+
+                function calcTip(bill) {
+                    if (bill >= 50 && bill <= 300) {
+                        return bill * 0.15;
+                    } else {
+                        return bill * 0.20;
+                    }
+                }
+
+                const billValue = 100;
+                const tipValue = calcTip(billValue);
+                console.log(`Tip for $${billValue} is $${tipValue.toFixed(2)}`);
+
+                const bills = [125, 555, 44];
+
+                const tips = bills.map(bill => calcTip(bill));
+
+                const total = bills.map((bill, index) => bill + tips[index]);
+
+                console.log("Bill values:", bills);
+                console.log("Tip values:", tips);
+                console.log("Total values:", total);
+    </script>
+</body>
+</html>

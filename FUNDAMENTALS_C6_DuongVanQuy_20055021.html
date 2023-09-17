@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Coding challenge #6");
+        
+        function calcTip(bill) {
+            if (bill >= 50 && bill <= 300) {
+                return bill * 0.15;
+            } else {
+                return bill * 0.20;
+            }
+        }
+
+        const billValue = 100;
+        const tipValue = calcTip(billValue);
+        console.log(`Tip for $${billValue} is $${tipValue.toFixed(2)}`);
+
+        const bills = [125, 555, 44];
+
+        const tips = bills.map(bill => calcTip(bill));
+
+        const total = bills.map((bill, index) => bill + tips[index]);
+
+        console.log("Bill values:", bills);
+        console.log("Tip values:", tips);
+        console.log("Total values:", total);
+    </script>
+</body>
+</html>
